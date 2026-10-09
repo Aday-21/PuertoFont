@@ -6,7 +6,6 @@ import { ProdFont } from '../interfaces/prod-font'; // Nuestra interfaz de datos
 import { ProdFontItemComponent } from '../components/prod-font-item/prod-font-item.component'; // El componente hijo
 import { CommonModule } from '@angular/common'; // Módulo necesario para usar *ngIf y *ngFor
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,6 +13,7 @@ import { CommonModule } from '@angular/common'; // Módulo necesario para usar *
    // Al ser un componente standalone, debemos importar aquí todo lo que usemos en la plantilla
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent, // Componentes de Ionic
+    ProdFontItemComponent,
     CommonModule // El módulo para las directivas
   ],
 })

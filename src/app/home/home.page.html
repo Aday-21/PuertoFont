@@ -1,4 +1,4 @@
-```html
+
 <!-- Cabecera principal -->
 <ion-header [translucent]="true">
   <ion-toolbar>
@@ -17,17 +17,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Mensaje cuando no hay productos -->
+  <!-- Directiva *ngIf: este div solo existirá en el DOM si la condición es verdadera -->
   <div *ngIf="listaDeProductosFont.length === 0" class="mensaje-vacio">
     <p>Vuelve Pronto!!</p>
     <p>No hay productos disponibles.</p>
   </div>
 
-  <!-- Lista de productos -->
-  <app-task-item
+  <!-- 
+    Directiva *ngFor: este es el bucle. 
+    - Por cada objeto 'tarea' que haya en el array 'listaDeTareas'...
+    - ...Angular creará una instancia de nuestro componente <app-prod_font-item>.
+  -->
+  <app-prod-font-item
     *ngFor="let prod_font of listaDeProductosFont"
-    [prod-font]="prod_font">
-  </app-task-item>
-
+    [prod_font]="prod_font"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
+  </app-prod-font-item>
 </ion-content>
-```
