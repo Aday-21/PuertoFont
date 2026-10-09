@@ -1,0 +1,7 @@
+{
+  "name": "PuertoFont",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

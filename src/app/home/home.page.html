@@ -1,0 +1,33 @@
+```html
+<!-- Cabecera principal -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Cabecera grande -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lista de Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Mensaje cuando no hay productos -->
+  <div *ngIf="listaDeProductosFont.length === 0" class="mensaje-vacio">
+    <p>Vuelve Pronto!!</p>
+    <p>No hay productos disponibles.</p>
+  </div>
+
+  <!-- Lista de productos -->
+  <app-task-item
+    *ngFor="let prod_font of listaDeProductosFont"
+    [prod-font]="prod_font">
+  </app-task-item>
+
+</ion-content>
+```

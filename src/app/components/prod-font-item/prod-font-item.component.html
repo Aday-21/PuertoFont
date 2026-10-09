@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-item>
+    <ion-checkbox
+      slot="start"
+      [checked]="prod_font.cantidad > 0">
+    </ion-checkbox>
+
+    <ion-label [class.tachado]="prod_font.cantidad <= 0">
+      {{ prod_font.nombre }}
+    </ion-label>
+
+    <ion-button (click)="mostrarDetalles()" slot="end">
+      Ver
+    </ion-button>
+  </ion-item>
+</ion-card>
