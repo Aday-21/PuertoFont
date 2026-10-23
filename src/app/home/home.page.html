@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"  class="ion-padding">
 
   <!-- Cabecera grande -->
   <ion-header collapse="condense">
@@ -16,6 +16,29 @@
       <ion-title size="large">Lista de Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  
+  <!-- Presentación de PuertoFont -->
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+    <!-- 
+      Por defecto (xs), esta columna ocupa las 12 unidades (ancho completo).
+      A partir del tamaño 'md', ocupará solo 4 unidades.
+    -->
+    <ion-col style="border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <img src="assets\icon\PuertoFont.png" alt="Avatar de usuario" style="border-radius: 8px; width: 200px; height: 170px; display: flex;"/>
+  
+    <!-- 
+      Por defecto (xs), esta columna también ocupa las 12 unidades, apilándose debajo.
+      A partir del tamaño 'md', ocupará las 8 unidades restantes.
+    -->
+    
+      <p>Este es el texto descriptivo del perfil. Ahora tiene más espacio disponible.</p>
+      <ion-button>Contactar</ion-button>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+
 
   <!-- Directiva *ngIf: este div solo existirá en el DOM si la condición es verdadera -->
   <div *ngIf="listaDeProductosFont.length === 0" class="mensaje-vacio">
@@ -28,8 +51,13 @@
     - Por cada objeto 'tarea' que haya en el array 'listaDeTareas'...
     - ...Angular creará una instancia de nuestro componente <app-prod_font-item>.
   -->
-  <app-prod-font-item
-    *ngFor="let prod_font of listaDeProductosFont"
-    [prod_font]="prod_font"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
-  </app-prod-font-item>
+  <ion-grid id="productos" style="background-color: rgb(0, 119, 216);">
+    <ion-row>
+      <ion-col size="12" size-md="4" size-lg="3" *ngFor="let prod_font of listaDeProductosFont" >
+        <app-prod-font-item
+          [prod_font]="prod_font"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
+        </app-prod-font-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
