@@ -18,11 +18,7 @@ import { IonGrid, IonRow, IonCol, IonButton } from '@ionic/angular';
     IonHeader, IonToolbar, IonTitle, IonContent, // Componentes de Ionic
     ProdFontItemComponent,
     CommonModule, IonGrid, IonRow, IonCol, IonButton // El módulo para las directivas
-    ,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent
+    
 ],
   
 })
