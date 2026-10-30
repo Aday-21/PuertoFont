@@ -4,17 +4,18 @@
     <ion-title>
       Lista de Productos
     </ion-title>
+
+    <!-- El contenedor de botones debe ir fuera de ion-title -->
+    <ion-buttons slot="end">
+      <ion-button routerLink="/ajustes">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
-  <!-- Cabecera grande -->
-  <ion-header collapse="condense">
-    <ion-toolbar color="primary">
-      <ion-title size="large">Lista de Productos</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <!-- Presentación de PuertoFont -->
   <ion-grid>

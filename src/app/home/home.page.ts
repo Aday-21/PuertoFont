@@ -7,6 +7,11 @@ import { ProdFontItemComponent } from '../components/prod-font-item/prod-font-it
 import { CommonModule } from '@angular/common'; // Módulo necesario para usar *ngIf y *ngFor
 import { IonGrid, IonRow, IonCol, IonButton } from '@ionic/angular';
 
+import { RouterLink } from '@angular/router';
+import {  IonList, IonItem, IonInput, IonButtons, IonIcon } from '@ionic/angular'; 
+import { addIcons } from 'ionicons';
+import { settingsOutline } from 'ionicons/icons';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +22,10 @@ import { IonGrid, IonRow, IonCol, IonButton } from '@ionic/angular';
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent, // Componentes de Ionic
     ProdFontItemComponent,
-    CommonModule, IonGrid, IonRow, IonCol, IonButton // El módulo para las directivas
+    CommonModule, IonGrid, IonRow, IonCol, IonButton, // El módulo para las directivas
+    RouterLink,
+    IonButtons, // Necesario para agrupar botones en la barra de herramientas
+    IonIcon     // Necesario para mostrar iconos vectoriales 
     
 ],
   
@@ -78,6 +86,8 @@ export class HomePage {
   { id: 50, nombre: "Desague de Ducha", cantidad: 10, imagen: "https://picsum.photos/seed/133/200/200" }
 ];
 
-  constructor() {}
-
+  constructor(){
+    // Registramos el icono de ajustes que vamos a usar en la vista
+    addIcons({ settingsOutline });
+  }
 }

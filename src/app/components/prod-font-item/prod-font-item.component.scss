@@ -1,10 +1,28 @@
+/* ==========================================================================
+   ESTILOS GLOBALES PARA LAS TARJETAS (ion-card)
+   ========================================================================== */
+
+/**
+ * ion-card: 
+ * Configura el diseño base para todas las tarjetas de la aplicación, 
+ * definiendo un fondo oscuro personalizado, el color del texto, esquinas 
+ * redondeadas y una sombra sutil para dar profundidad.
+ */
 ion-card{
     background-color: rgb rgb(28, 30, 31);
     color:  rgb(0, 119, 216);
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* ==========================================================================
+   ESTILOS GLOBALES PARA LOS ELEMENTOS DE LISTA O FORMULARIO (ion-item)
+   ========================================================================== */
 
+/**
+ * ion-item: 
+ * Establece el fondo como transparente para que los elementos internos 
+ * se integren perfectamente con el contenedor de la tarjeta.
+ */
 ion-item{
     --background: transparent;
 }

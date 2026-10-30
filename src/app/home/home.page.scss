@@ -1,33 +1,55 @@
+/* ==========================================================================
+   CONTENEDOR DE CENTRADO GENERAL (Plantilla por defecto de Ionic)
+   ========================================================================== */
+
+/**
+ * #container: 
+ * Contenedor absoluto que centra su contenido vertical y horizontalmente.
+ */
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
-
+/**
+ * #container strong: 
+ * Estilo para texto en negrita dentro del contenedor principal.
+ */
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
-
+/**
+ * #container p: 
+ * Estilo para los párrafos de texto dentro del contenedor principal.
+ */
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
-
+/**
+ * #container a: 
+ * Elimina el subrayado por defecto de los enlaces dentro del contenedor.
+ */
 #container a {
   text-decoration: none;
 }
 
-/* Sombra personalizada usando el color secundario (botón Contactar) */
-.perfil-columna {
+/* ==========================================================================
+   ESTILOS DE LA TARJETA / COLUMNA DE PERFIL (MODO CLARO)
+   ========================================================================== */
+
+/**
+ * .perfil-columna: 
+ * Estilos base (modo claro) de la tarjeta superior de perfil: bordes redondeados, 
+ * distribución flexible centrada, color de fondo blanco y transiciones suaves.
+ */
+ .perfil-columna {
   border-radius: 12px;
   padding: 20px;
   display: flex;
@@ -35,15 +57,51 @@
   align-items: center;
   text-align: center;
   background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Los párrafos internos heredan el color del contenedor */
+  p {
+    color: inherit;
+  }
 }
 
-/* Sombra específica para el logo */
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA EL LOGOTIPO
+   ========================================================================== */
+
+/**
+ * .logo-sombra: 
+ * Define las dimensiones de la imagen del logo y le aplica una sombra 
+ * personalizada utilizando las variables de color secundario de la app.
+ */
 .logo-sombra {
   border-radius: 12px;
   width: 200px;
   height: 170px;
   object-fit: contain;
-  /* Sombra aplicada al logo para que destaque */
   box-shadow: 0 4px 14px rgba(var(--ion-color-secondary-rgb), 0.35);
   margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN A MODO OSCURO (DARK MODE) PARA LA TARJETA DE PERFIL
+   ========================================================================== */
+
+/**
+ * Selectores de Modo Oscuro (.perfil-columna): 
+ * Fuerzan de forma global que, sin importar el método con el que se active el 
+ * modo oscuro (body.dark, html.dark o clases de paleta), la tarjeta de perfil 
+ * cambie su fondo a negro (#000000), muestre texto blanco y añada un borde sutil.
+ */
+body.dark .perfil-columna,
+html.dark .perfil-columna,
+.ion-palette-dark .perfil-columna,
+ion-content.ion-palette-dark .perfil-columna {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #222222 !important;
+
+  p {
+    color: #ffffff !important;
+  }
 }

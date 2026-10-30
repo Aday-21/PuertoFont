@@ -1,4 +1,6 @@
-/* En src/theme/variables.scss, dentro de :root */
+/* ==========================================================================
+   CONFIGURACIÓN DE VARIABLES DEL TEMA CLARO (:root) - PARTE 1
+   ========================================================================== */
 :root {
   /* Color Primario */
   --ion-color-primary: #3b82f6;
@@ -20,9 +22,38 @@
   --ion-background-color: #f4f5f8;
   --ion-text-color: #222428;
 }
+/* ==========================================================================
+   SOBREESCRITURA DE VARIABLES BASE DEL TEMA CLARO - PARTE 2
+   ========================================================================== */
 :root {
   /* ... tus colores actuales ... */
 
   --ion-background-color: #ffffff;
   --ion-text-color: #000000;
+}
+
+/* ==========================================================================
+   MIXIN Y REGLAS PARA EL MODO OSCURO (DARK MODE)
+   ========================================================================== */
+
+/* 1. Definimos un bloque de estilos reutilizable mediante un mixin */
+@mixin dark-theme-variables {
+  --ion-color-primary: #428cff;
+  --ion-color-primary-rgb: 66,140,255;
+  --ion-color-primary-contrast: #ffffff;
+  
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+}
+
+/* 2. Aplicamos el mixin cuando el sistema operativo detecta preferencia oscura */
+@media (prefers-color-scheme: dark) {
+  body {
+    @include dark-theme-variables;
+  }
+}
+
+/* 3. Aplicamos el mixin cuando el servicio añade la clase .dark al body */
+body.dark {
+  @include dark-theme-variables;
 }

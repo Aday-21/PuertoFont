@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonListHeader, IonItem, IonLabel, IonToggle, IonButtons, IonBackButton } from '@ionic/angular';
+import { Settings } from '../../services/settings';
 
 @Component({
   selector: 'app-ajustes',
   templateUrl: './ajustes.page.html',
   styleUrls: ['./ajustes.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  standalone: true,
+  imports: [
+    IonContent, IonHeader, IonTitle, IonToolbar,  
+    IonButtons, IonBackButton,  
+    IonList, IonListHeader, IonItem, IonLabel, IonToggle  
+  ]
 })
-export class AjustesPage implements OnInit {
+export class AjustesPage {
 
-  constructor() { }
+  // Al declarar el parámetro como 'public', Angular nos permite acceder a 
+  // 'settingsService' directamente desde el archivo HTML (plantilla).
+  constructor(public settingsService: Settings) { }
 
-  ngOnInit() {
+  // Método que se ejecuta cada vez que el usuario mueve el interruptor (ion-toggle)
+  onToggleChange(event: any) {
+    // Obtenemos el nuevo valor booleano (true o false) del evento del componente
+    const isChecked = event.detail.checked;
+    
+    // Actualizamos el servicio pasándole el nuevo estado
+    this.settingsService.setDarkMode(isChecked);
   }
-
 }
